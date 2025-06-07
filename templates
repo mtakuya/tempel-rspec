@@ -144,3 +144,67 @@ ruby-mode ruby-ts-mode
 
 ; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/have-attributes/
 (expect_to_have_attributes "expect("(p "actual")").to have_attributes("(p "...")")")
+
+; https://rspec.info/documentation/3.13/rspec-mocks/
+(double "double("(p "...")")")
+(instance_double "instance_double("(p "...")")")
+
+;; Method Stubs
+(allow_to_receive "allow("(p "...")").to receive(:"(p "...")") { "(p "...")" }")
+(allow_to_receive_and_return "allow("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
+(allow_to_receive_messages "allow("(p "...")").to receive_messages(:"(p "...")")")
+
+;; Stubbing a chain of methods
+(allow_to_receive_message_chain "allow("(p "...")").to receive_message_chain("(p "...")") { "(p "...")" }")
+
+;; Test Spies
+(spy "spy("(p "...")")")
+(instance_spy "instance_spy("(p "...")")")
+(class_spy "class_spy("(p "...")")")
+(object_spy "object_spy("(p "...")")")
+
+;;Expecting Arguments
+(expect_to_receive_with "expect("(p "...")").to receive(:"(p "...")").with("(p "...")")")
+(expect_to_not_receive_with "expect("(p "...")").to_not receive(:"(p "...")").with("(p "...")")")
+
+;; Receive Counts
+(once ".once")
+(twice ".twice")
+(exactly ".exactly("(p "...")")")
+(time ".time")
+(times ".times")
+(at_least ".at_least("(p "...")")")
+(at_most ".at_most("(p "...")")")
+
+(expect_to_receive_once "expect("(p "...")").to receive(:"(p "...")").once")
+(expect_to_receive_twice "expect("(p "...")").to receive(:"(p "...")").twice")
+(expect_to_receive_exactly_time "expect("(p "...")").to receive(:"(p ("..."))").exactly("(p "...")").time")
+(expect_to_receive_exactly_times "expect("(p "...")").to receive(:"(p ("..."))").exactly("(p "...")").times")
+
+(expect_to_receive_at_least "expect("(p "...")").to receive(:"(p "...")").at_least(:"(p "...")")")
+(expect_to_receive_at_least_time "expect("(p "...")").to receive(:"(p "...")").at_least(:"(p "...")").time")
+(expect_to_receive_at_least_times "expect("(p "...")").to receive(:"(p "...")").at_least(:"(p "...")").times")
+
+(expect_to_receive_at_most "expect("(p "...")").to receive(:"(p "...")").at_most(:"(p "...")")")
+(expect_to_receive_at_most_time "expect("(p "...")").to receive(:"(p "...")").at_most(:"(p "...")").time")
+(expect_to_receive_at_most_times "expect("(p "...")").to receive(:"(p "...")").at_most(:"(p "...")").times")
+
+;; Ordering
+(ordered ".ordered")
+(expect_to_receive_orderd "expect("(p "...")").to receive(:"(p "...")").ordered")
+
+;; Setting Responses
+(allow_to_receive_and_return "allow("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
+(allow_to_receive_and_arise "allow("(p "...")").to receive(:"(p "...")").and_raise("(p "...")")")
+(allow_to_receive_and_throw "allow("(p "...")").to receive(:"(p "...")").and_throw(:"(p "...")")")
+(allow_to_receive_and_yield "allow("(p "...")").to receive(:"(p "...")").and_yield("(p "...")", "(p "...")", " (p "...") ")")
+
+;; Delegating to the Original Implementation
+(expect_to_receive_and_call_original "expect("(p "...")").to receive(:"(p "...")").and_call_original")
+
+;; Settings mocks or stubs on any instance of a class
+(allow_any_instance_of_to_receive_and_return "allow_any_instance_of("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
+(expect_any_instance_of_to_receive_and_return "expect_any_instance_of("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
+
+; https://rspec.info/features/8-0/rspec-rails/Transactions/
+;;TODO
