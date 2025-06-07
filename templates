@@ -1,0 +1,146 @@
+ruby-mode ruby-ts-mode
+
+(rspec_describe
+"RSpec.describe " (p "...") " do" n>
+(p) n>
+"end"
+)
+
+(context
+"context '" (p) "' do" n>
+(p) n>
+"end"
+)
+
+(describe
+"describe '" (p) "' do" n>
+(p) n>
+"end"
+)
+
+(it
+"it '" (p "...") "' do" n>
+(p) n>
+"end"
+)
+
+; https://rspec.info/documentation/3.13/rspec-expectations/
+;; Equivalence
+(expect_to_eq  "expect("(p "actual")").to eq("(p "expected")")")
+(expect_to_eql "expect("(p "actual")").to eq("(p "expected")")")
+(expect_not_to "expect("(p "actual")").to_not eq("(p "not_expected")")")
+
+;;Identity
+(expect_to_be  "expect("(p "actual")").to be("(p "expected")")")
+(expect_to_equal  "expect("(p "actual")").to equal("(p "expected")")")
+
+;;Comparisons
+(expect_to_be>  "expect("(p "actual")").to be > ("(p "expected")")")
+(expect_to_be>=  "expect("(p "actual")").to be >= ("(p "expected")")")
+(expect_to_be<=  "expect("(p "actual")").to be <= ("(p "expected")")")
+(expect_to_be<  "expect("(p "actual")").to be < ("(p "expected")")")
+(expect_to_be_within  "expect("(p "actual")").to be_within("(p "delta")").of("(p "expected")")")
+
+;;Regular expressions
+(expect_to_match  "expect("(p "actual")").to match(/"(p "expected")"/)")
+
+;; Types/classes
+(expect_to_be_an_instance_of  "expect("(p "actual")").to be_an_instance_of("(p "expected")")")
+(expect_to_be_a "expect("(p "actual")").to be_a("(p "expected")")")
+(expect_to_be_an "expect("(p "actual")").to be_an("(p "expected")")")
+(expect_to_be_a_kind_of "expect("(p "actual")").to be_a_kind_of("(p "expected")")")
+
+;; Truthiness
+(expect_to_be_truthy  "expect("(p "actual")").to be_truthy")
+(expect_to_be_true  "expect("(p "actual")").to be true")
+(expect_to_be_falsy  "expect("(p "actual")").to be_falsy")
+(expect_to_be_false  "expect("(p "actual")").to be false")
+(expect_to_be_nil  "expect("(p "actual")").to be_nil")
+(expect_to_not_be_nil  "expect("(p "actual")").to_not be_nil")
+
+;; Expecting errors
+(expect_to_raise_error  "expect { " (p "...") " }.to raise_error")
+(expect_to_raise_error_class  "expect { " (p "...") " }.to raise_error(" (p "ErrorClass") ")")
+(expect_to_raise_error_message  "expect { " (p "...") " }.to raise_error(" (p "message") ")")
+(expect_to_raise_error_class_message  "expect { " (p "...") " }.to raise_error(" (p "ErrorClass") "," (p "message")")")
+
+;; Expecting throws
+(expect_to_throw_symbol  "expect { " (p "...") " }.to throw_symbol")
+(expect_to_throw_symbol_s  "expect { " (p "...") " }.to throw_symbol(" (p ":symbol") ")")
+(expect_to_throw_symbol_s_v  "expect { " (p "...") " }.to throw_symbol(" (p ":symbol") "," (p "value") ")")
+
+;; Predicate matchers
+(expect_to_be_xxx "expect(" (p "...") ").to be_xxx")
+(expect_to_have_xxx "expect(" (p "...") ").to have_xxx")
+
+;;Ranges (Ruby >= 1.9 only)
+(expect_range_cover "expect(" (p "...") ").to cover(" (p "..." )")")
+
+;; Collection membership
+(expect_to_start_with "expect(" (p "actual") ").to start_with("(p "expected")")")
+(expect_to_end_with "expect(" (p "actual") ").to end_with("(p "expected")")")
+(expect_to_match_array "expect(" (p "actual") ").to match_array("(p "expected")")")
+(expect_to_contains_exactly "expect(" (p "actual") ").to contain_exactly("(p "expected_element")")")
+(expect_to_include "expect(" (p "actual") ").to include("(p "expected")")")
+
+;; Compound Matcher Expressions
+(and ".and")
+(or ".or")
+
+; https://rspec.info/features/3-13/rspec-core/example-groups/shared-examples/
+(let "let(:"(p "...") ") { "(p "parameter")" }")
+(let! "let!(:"(p "...") ") { "(p "parameter")" }")
+
+; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/
+(eq "eq("(p "expected")")")
+(be_empty "be_empty")
+(be "be("(p "expected")")")
+(eql "eql("(p "expected")")")
+(expecte_to_be_between_inclusive "expect("(p "actual")").to be_between("(p "minimum")", "(p "maximum") ").inclusive")
+(expecte_to_be_between_exclusive "expect("(p "actual")").to be_between("(p "minimum")", "(p "maximum") ").exclusive")
+
+;; Types/classes/response
+(expect_to_be_instance_of "expect("(p "actual")").to be_instance_of("(p "expected")")")
+(expect_to_be_kind_of "expect("(p "actual")").to be_kind_of("(p "expected")")")
+(expect_to_respond_to "expect("(p "actual")").to respond_to("(p "expected")")")
+
+;;Truthiness and existentialism
+(be_truthy "be_truthy")
+(be_true "be true")
+(be_falsey "be_falsey")
+(be_false "be false")
+(be_nil "be_nil")
+(exist "exist")
+
+;; Change observation
+(expect_to_change_from_to "expect { "(p "object_action")" }.to change("(p "object")", "(p ":value")").from("(p "old")").to("(p "new")")")
+(expect_to_change_by "expect { "(p "object.action") " }.to change("(p "object")"," (p ":value") ").by("(p "delta")")")
+(expect_to_change_by_at_least "expect { "(p "object.action") " }.to change("(p "object")"," (p ":value") ").by_at_least("(p "delta")")")
+(expect_to_change_by_at_most "expect { "(p "object.action") " }.to change("(p "object")"," (p ":value") ").by_at_most("(p "delta")")")
+
+;;Satisfy
+(expect_to_satisfy "expect("(p "actual")").to satisfy { |value| value == "(p "expected")" }")
+
+;; Output capture
+(expect_to_output_to_stdout "expect { "(p "actual")" }.to output('some output').to_stdout")
+(expect_to_output_to_stderr "expect { "(p "actual")" }.to output('some output').to_stderr")
+
+; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/equality/
+(equal? "equal?("(p "object")")")
+(equal "equal("(p "object")")")
+(eql? "eql?("(p "object")")")
+(== "==")
+(.to ".to")
+(.not_to ".not_to")
+(expect "expect()")
+(be "be")
+
+; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/all/
+(expect_to_all "expect("(p "object")").to all( be_xxx )")
+(include "include("(p "...")")")
+
+; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/exist/
+(exist "exist")
+
+; https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/have-attributes/
+(expect_to_have_attributes "expect("(p "actual")").to have_attributes("(p "...")")")
