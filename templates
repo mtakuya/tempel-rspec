@@ -206,5 +206,32 @@ ruby-mode ruby-ts-mode
 (allow_any_instance_of_to_receive_and_return "allow_any_instance_of("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
 (expect_any_instance_of_to_receive_and_return "expect_any_instance_of("(p "...")").to receive(:"(p "...")").and_return("(p "...")")")
 
-; https://rspec.info/features/8-0/rspec-rails/Transactions/
-;;TODO
+;https://rspec.info/features/8-0/rspec-rails/
+(expect_to_render_template "expect(response).to render_template(:"(p "...")")")
+(expect_to_not_render_template "expect(response).to_not render_template(:"(p "...")")")
+(expect_to_redirect_to "expect(response).to redirect_to("(p "...")")")
+(expect_to_heve_http_status "expect(response).to have_http_status("(p "...")")")
+(expect_to_be_a_new "expect("(p "...")").to be_a_new("(p "...")")")
+(expect_not_to_be_a_new "expect("(p "...")").not_to be_a_new("(p "...")")")
+
+(expect_to_have_been_enqueued "expect("(p "...")").to have_been_enqueued")
+(expect_to_have_been_enqueued_with "expect("(p "...")").to have_been_enqueued.with("(p "...")")")
+(expect_to_have_been_enqueued_at "expect("(p "...")").to have_been_enqueued.at("(p "...")")")
+(expect_to_have_been_enqueued_on_queue "expect("(p "...")").to have_been_enqueued.on_queue('"(p "...")"')")
+
+(expect_to_have_been_performed "expect("(p "...")").to have_been_performed")
+(expect_to_have_been_performed_with "expect("(p "...")").to(have_been_performed.with('"(p "...")"'))")
+(expect_to_have_been_performed_at "expect("(p "...")").to have_been_performed.at("(p "...")")")
+(expect_to_have_been_performed_on_queue "expect("(p "...")").to have_been_performed.on_queue('"(p "...")"')")
+
+(expect_to_have_broadcasted_to "expect { "(p "...")" }.to have_broadcasted_to('"(p "...")"')")
+(expect_to_have_broadcasted_to_with "expect { "(p "...")" }.to have_broadcasted_to('"(p "...")"').with("(p "...")")")
+
+(expect_to_have_enqueued_job "expect { "(p "...")"  }.to have_enqueued_job("(p "...")")")
+(expect_to_have_enqueued_job_with "expect { "(p "...")"  }.to have_enqueued_job.with("(p "...")")")
+(expect_to_have_enqueued_job_at "expect { "(p "...")"  }.to have_enqueued_job.at("(p "...")")")
+(expect_to_have_enqueued_job_on_queue "expect { "(p "...")"  }.to have_enqueued_job.on_queue('"(p "...")"')")
+
+
+;; https://rspec.info/features/8-0/rspec-rails/matchers/have-enqueued-mail-matcher/
+; TODO
