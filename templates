@@ -232,6 +232,22 @@ ruby-mode ruby-ts-mode
 (expect_to_have_enqueued_job_at "expect { "(p "...")"  }.to have_enqueued_job.at("(p "...")")")
 (expect_to_have_enqueued_job_on_queue "expect { "(p "...")"  }.to have_enqueued_job.on_queue('"(p "...")"')")
 
+(expect_to_have_enqueued_mail "expect { "(p "...")" }.to have_enqueued_mail("(p "...")")")
+(expect_to_have_enqueued_mail_at "expect { "(p "...")" }.to have_enqueued_mail("(p "...")").at("(p "...")")")
+(expect_to_have_enqueued_mail_with "expect { "(p "...")" }.to have_enqueued_mail("(p "...")").with("(p "...")")")
 
-;; https://rspec.info/features/8-0/rspec-rails/matchers/have-enqueued-mail-matcher/
-; TODO
+(expect_to_have_performed_job "expect { "(p "...")" }.to have_performed_job("(p "...")")")
+(expect_to_have_performed_job_with "expect { "(p "...")" }.to have_performed_job("(p "...")").with("(p "...")")")
+(expect_to_have_performed_job_at "expect { "(p "...")" }.to have_performed_job("(p "...")").at("(p "...")")")
+(expect_to_have_performed_job_on_queue "expect { "(p "...")" }.to have_performed_job("(p "...")").on_queue("(p "...")")")
+
+(expect_to_have_stream_from "expect("(p "...")").to have_stream_from("(p "...")")")
+
+(expect_to_send_email "expect {"(p "...")"}.to send_email("(p "...")")")
+(expect_to_not_send_email "expect {"(p "...")"}.to_not send_email("(p "...")")")
+
+; Routing specs
+(expect_to_route_to "expect("(p "...")").to route_to("(p "...")")")
+
+(expect_to_be_routable "expect("(p "...")").to be_routable")
+(expect_not_to_be_routable "expect("(p "...")").not_to be_routable")
