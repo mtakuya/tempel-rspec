@@ -269,3 +269,28 @@ ruby-mode ruby-ts-mode
 (page_has_xpath? "page.has_xpath?("(p "...")")")
 (page_has_css? "page.has_css?("(p "...")")")
 (page_has_content? "page.has_content?("(p "...")")")
+(find_field_value "find_field("(p "...")").value")
+(find_link_visible? "find_link("(p "...")",:visible => :all).visible?")
+(find_button_click "find_button("(p "...")").click")
+(find ".find")
+(click ".click")
+(within "within("(p "...")")")
+(within_fieldset "within_fieldset("(p "...")")")
+(within_table "within_table("(p "...")")")
+(page_execute_script "page.execute_script("(p "...")")")
+(accept_alert "accept_alert '(p "...")'")
+(accept_confirm "accept_confirm '(p "...")'")
+(dismiss_confirm "dismiss_confirm '(p "...")'")
+(accept_prompt "accept_prompt '(p "...")'")
+
+(save_and_open_page "save_and_open_page")
+(save_and_open_screenshot "save_and_open_screenshot")
+
+(page_html "page.html")
+(page_find_link "page.find_link")
+(page_find_field "page.find_field")
+(page_find_text "page.find("(p "...")").text")
+(page_find_by_id "page.find_by_id("(p "...")")")
+
+; https://rspec.info/features/8-0/rspec-rails/system-specs/system-specs/
+(expect_page_to_have_text "expect(page).to have_text("(p "...")")")
