@@ -164,6 +164,9 @@ ruby-mode ruby-ts-mode
 (class_spy "class_spy("(p "...")")")
 (object_spy "object_spy("(p "...")")")
 
+(expect_to_have_received "expect("(p "...")").to have_received("(p "...")")")
+(expect_to_have_received_with "expect("(p "...")").to have_received("(p "...")").with("(p "...")")")
+
 ;;Expecting Arguments
 (expect_to_receive_with "expect("(p "...")").to receive(:"(p "...")").with("(p "...")")")
 (expect_to_not_receive_with "expect("(p "...")").to_not receive(:"(p "...")").with("(p "...")")")
